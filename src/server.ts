@@ -1,8 +1,13 @@
-import express from 'express';
+import express from "express";
+import routes from './routes'
+import './database'
 
-const app = express();
+const app = express()
 
-app.listen(3333, () => {
-    console.log('running')
-    //:fire
+app.use(express.json())
+app.use(routes);
+
+const port = 3333
+app.listen(port, () => {
+  console.log(`Server running on ${port}`);
 })
